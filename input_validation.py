@@ -1,7 +1,7 @@
 import re
 
 
-def is_valid_email(email:str) -> bool:
+def is_valid_email(email: str) -> bool:
     """
     Uses regular expression to validate email.
 
