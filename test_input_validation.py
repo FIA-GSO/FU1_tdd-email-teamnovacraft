@@ -10,12 +10,10 @@ from input_validation import is_valid_email
     "test@email.co.uk",
     "te-st@email.com",
     "te_st@email.com",
-    "test1@email.com"
+    "test1@email.com",
+    "test+other@email.com"
 ])
-def test_is_valid_email__gueltige_adressen(email):
-    # arrange
-    email_adress_to_be_tested = email
-
+def test_is_valid_email__valid_addresses(email):
     # act
     response = is_valid_email(email)
 
@@ -24,14 +22,11 @@ def test_is_valid_email__gueltige_adressen(email):
 
 
 @pytest.mark.parametrize("email", [
-    "test email.com",  # Fehlendes @-Zeichen
-    "test@email",  # Fehlende Top-Level-Domain
-    "test@em@ail.com"  # Mehrfaches @-Zeichen
+    "test email.com",
+    "test@email",
+    "test@em@ail.com"
 ])
-def test_is_valid_email__ungueltige_adressen(email):
-    # arrange
-    email_adress_to_be_tested = email
-
+def test_is_valid_email__invalid_addresses(email):
     # act
     response = is_valid_email(email)
 
